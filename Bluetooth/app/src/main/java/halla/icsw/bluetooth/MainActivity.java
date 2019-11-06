@@ -271,10 +271,12 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                     byte[] readBuf = (byte[]) msg.obj;
                     // construct a string from the valid bytes in the buffer
                     readMessage = new String(readBuf, 0, msg.arg1);
+
                     if(writeMessage != null && writeMessage.charAt(writeMessage.length()-1) != readMessage.charAt(0))
                     {
                         readMessage = "[끝말잇기 승리]:"+ readMessage;
                     }
+
                     mConversationArrayAdapter.add(mConnectedDeviceName+":  " + readMessage);
                     break;
                 case MESSAGE_DEVICE_NAME:
@@ -298,6 +300,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                     data.getStringArrayListExtra(
                             RecognizerIntent.EXTRA_RESULTS);
             str = results.get(0);
+            sendMessage(str);
 
             editText.setText(str);
             if (str.length() > 0) {
@@ -364,6 +367,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             Intent intent = new Intent(
                     RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             startActivityForResult(intent, 0);
+
+
+
+
 
         }catch (Exception e){
             Toast.makeText(this,
