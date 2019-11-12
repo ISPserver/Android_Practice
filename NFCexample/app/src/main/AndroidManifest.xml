@@ -13,14 +13,12 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.actions"
-            android:resource="@xml/xml/nfc_tech_filter" />
+            android:resource="@xml/nfc_tech_filter" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
             </intent-filter>
 
