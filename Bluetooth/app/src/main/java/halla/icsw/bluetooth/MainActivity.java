@@ -272,11 +272,13 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                     // construct a string from the valid bytes in the buffer
                     readMessage = new String(readBuf, 0, msg.arg1);
 
+
+
                     if(writeMessage != null && writeMessage.charAt(writeMessage.length()-1) != readMessage.charAt(0))
                     {
                         readMessage = "[끝말잇기 승리]:"+ readMessage;
                     }
-
+                    onvoice(readMessage);
                     mConversationArrayAdapter.add(mConnectedDeviceName+":  " + readMessage);
                     break;
                 case MESSAGE_DEVICE_NAME:
@@ -303,14 +305,14 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             sendMessage(str);
 
             editText.setText(str);
-            if (str.length() > 0) {
-                //이미 말하고 있다면, 기존 음성 합성을 정지 시킨다.
-                if (tts.isSpeaking()) tts.stop();
-                //음성합성 시작
-                tts.setSpeechRate(1.0f);
-
-                tts.speak(str, TextToSpeech.QUEUE_FLUSH, null);
-            }
+//            if (str.length() > 0) {
+//                //이미 말하고 있다면, 기존 음성 합성을 정지 시킨다.
+//                if (tts.isSpeaking()) tts.stop();
+//                //음성합성 시작
+//                tts.setSpeechRate(1.0f);
+//
+//                tts.speak(str, TextToSpeech.QUEUE_FLUSH, null);
+//            }
 
         }
 
@@ -334,7 +336,15 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 }
         }
     }
-
+    public void onvoice(String str){
+        if (str.length() > 0) {
+            //이미 말하고 있다면, 기존 음성 합성을 정지 시킨다.
+            if (tts.isSpeaking()) tts.stop();
+            //음성합성 시작
+            tts.setSpeechRate(1.0f);
+            tts.speak(str, TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
     private void connectDevice(Intent data) {
         // Get the device MAC address
         String address = data.getExtras()
@@ -367,10 +377,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             Intent intent = new Intent(
                     RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             startActivityForResult(intent, 0);
-
-
-
-
 
         }catch (Exception e){
             Toast.makeText(this,
