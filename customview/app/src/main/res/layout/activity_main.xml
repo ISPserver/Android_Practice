@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="match_parent"
+        android:layout_height="170dp" />
+
+    <TextView
+        android:id="@+id/titletext"
+        android:layout_width="wrap_content"
+        android:layout_height="149dp"
+        android:layout_below="@id/space1"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/font_1"
+        android:gravity="center"
+        android:text="지역명소추천"
+        android:textColor="@android:color/black"
+        android:textSize="47dp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="205dp"
+        android:layout_height="43dp"
+        android:layout_below="@id/titletext"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:overlapAnchor="false"
+        android:spinnerMode="dropdown" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="78dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/spinner1" />
+
+    <TextView
+        android:id="@+id/regiontext"
+        android:layout_width="143dp"
+        android:layout_height="68dp"
+        android:layout_below="@id/spinner1"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/space2"
+        android:background="@drawable/linecustom"
+        android:fontFamily="@font/font_1"
+        android:gravity="center"
+        android:hint="지역이름"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#861D1C1C"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/searchbt"
+        android:layout_width="102dp"
+        android:layout_height="69dp"
+        android:layout_below="@id/spinner1"
+        android:layout_alignTop="@id/regiontext"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/regiontext"
+        android:background="@drawable/selector"
+        android:fontFamily="@font/font_1"
+        android:text="검색"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+</RelativeLayout>

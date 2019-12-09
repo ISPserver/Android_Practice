@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2"
+    tools:context=".SearchActivity">
+
+    <Space
+        android:id="@+id/space1"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp" />
+
+    <TextView
+        android:id="@+id/regiontext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/space1"
+        android:fontFamily="@font/font_1"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="70dp" />
+
+    <Button
+        android:id="@+id/showRegion"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/regiontext"
+        android:layout_centerInParent="true"
+        android:background="@drawable/selector"
+        android:fontFamily="@font/font_1"
+        android:text="click!"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/listtext"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/showRegion"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="35dp"
+        android:background="#56FFFFFF"
+        android:fontFamily="@font/font_1"
+        android:gravity="center"
+        android:textColor="#020B3D"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/listtext"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/showbt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector"
+            android:fontFamily="@font/font_1"
+            android:text="자세히..."
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Space
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>
